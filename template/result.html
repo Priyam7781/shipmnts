@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'script.js' %}" defer></script>
+    <title>Weather</title>
+</head>
+<body>
+    <div class="card">
+        <div class="weather">
+            
+            <h2 class="city">Weather in {{ location.name }}</h2>
+            <h1 class="temp">{{current.temp_c}}</h1>
+            <div class="flex">
+                <img src="{{ current.condition.icon }}" class="icon"></img>
+                <div class="description">{{ current.condition.text }}</div>
+            </div>
+
+            <div class="wind">Wind speed: {{ current.wind_kph }} km/h</div>
+
+        </div>
+    </div>
+</body>
+</html>
